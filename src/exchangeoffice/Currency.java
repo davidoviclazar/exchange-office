@@ -11,6 +11,17 @@ public class Currency {
 
 	private GregorianCalendar date;
 
+	public Currency(String name, String shortName, double sales, double purchasable, double middle,
+			GregorianCalendar date) {
+		super();
+		this.name = name;
+		this.shortName = shortName;
+		this.sales = sales;
+		this.purchasable = purchasable;
+		this.middle = middle;
+		this.date = date;
+	}
+
 	public String getName() {
 		return name;
 	}
