@@ -15,7 +15,10 @@ public class ExchangeOffice {
 	}
 
 	public void setCurrencies(LinkedList<Currency> currencies) {
-		this.currencies = currencies;
+		if (currencies != null)
+			this.currencies = currencies;
+		else
+			throw new RuntimeException("List of currencies may not be null!");
 	}
 
 	@Override

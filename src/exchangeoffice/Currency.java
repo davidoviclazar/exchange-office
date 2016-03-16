@@ -27,6 +27,8 @@ public class Currency {
 	}
 
 	public void setName(String name) {
+		if (name == null)
+			throw new RuntimeException("Name can not be null!");
 		this.name = name;
 	}
 
@@ -35,6 +37,8 @@ public class Currency {
 	}
 
 	public void setShortName(String shortName) {
+		if (shortName == null)
+			throw new RuntimeException("Short name can not be null!");
 		this.shortName = shortName;
 	}
 
@@ -43,6 +47,8 @@ public class Currency {
 	}
 
 	public void setSales(double sales) {
+		if (sales < 0)
+			throw new RuntimeException("Sales rate should not be a negative number!");
 		this.sales = sales;
 	}
 
@@ -51,6 +57,8 @@ public class Currency {
 	}
 
 	public void setPurchasable(double purchasable) {
+		if (purchasable < 0)
+			throw new RuntimeException("Purchasable rate should not be a negative number!");
 		this.purchasable = purchasable;
 	}
 
@@ -59,6 +67,8 @@ public class Currency {
 	}
 
 	public void setMiddle(double middle) {
+		if (middle < 0)
+			throw new RuntimeException("Middle rate should not be a negative number!");
 		this.middle = middle;
 	}
 
@@ -67,6 +77,8 @@ public class Currency {
 	}
 
 	public void setDate(GregorianCalendar date) {
+		if (date == null) 
+			throw new RuntimeException("Date of course can not be null!");
 		this.date = date;
 	}
 
