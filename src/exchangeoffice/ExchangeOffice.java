@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 import interfacespecification.ExchangeOfficeInterface;
 
-public class ExchangeOffice implements ExchangeOfficeInterface{
+public class ExchangeOffice implements ExchangeOfficeInterface {
 	private LinkedList<Currency> currencies = new LinkedList<Currency>();
 
 	public ExchangeOffice(LinkedList<Currency> currencies) {
@@ -56,14 +56,20 @@ public class ExchangeOffice implements ExchangeOfficeInterface{
 
 	@Override
 	public void addRate(Currency rate) {
-		// TODO Auto-generated method stub
-		
+		if (rate == null)
+			return;
+
+		if (currencies.contains(rate))
+			return;
+
+		currencies.add(rate);
+
 	}
 
 	@Override
 	public void deleteRate(Currency rate) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
