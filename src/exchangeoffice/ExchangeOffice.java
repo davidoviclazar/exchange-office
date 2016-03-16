@@ -1,8 +1,11 @@
 package exchangeoffice;
 
+import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
-public class ExchangeOffice {
+import interfacespecification.ExchangeOfficeInterface;
+
+public class ExchangeOffice implements ExchangeOfficeInterface{
 	private LinkedList<Currency> currencies = new LinkedList<Currency>();
 
 	public ExchangeOffice(LinkedList<Currency> currencies) {
@@ -49,5 +52,23 @@ public class ExchangeOffice {
 	@Override
 	public String toString() {
 		return "ExchangeOffice [currencies=" + currencies + "]";
+	}
+
+	@Override
+	public void addRate(Currency rate) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteRate(Currency rate) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Currency findRate(String currency, GregorianCalendar date) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
