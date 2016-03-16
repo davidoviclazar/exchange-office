@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 import interfacespecification.ExchangeOfficeInterface;
 
-public class ExchangeOffice implements ExchangeOfficeInterface{
+public class ExchangeOffice implements ExchangeOfficeInterface {
 	private LinkedList<Currency> currencies = new LinkedList<Currency>();
 
 	public ExchangeOffice(LinkedList<Currency> currencies) {
@@ -56,19 +56,40 @@ public class ExchangeOffice implements ExchangeOfficeInterface{
 
 	@Override
 	public void addRate(Currency rate) {
-		// TODO Auto-generated method stub
-		
+		if (rate == null)
+			throw new RuntimeException("The rate may not be null!");
+
+		if (currencies.contains(rate))
+			throw new RuntimeException("The course has already been entered!");
+
+		currencies.add(rate);
+
 	}
 
 	@Override
 	public void deleteRate(Currency rate) {
-		// TODO Auto-generated method stub
-		
+		if (rate == null)
+			throw new RuntimeException("The rate may not be null!");
+
+		if (!currencies.contains(rate))
+			throw new RuntimeException("Rate does not exist!");
+
+		currencies.remove(rate);
+
 	}
 
 	@Override
 	public Currency findRate(String currency, GregorianCalendar date) {
-		// TODO Auto-generated method stub
+		if (currency == null || date == null)
+			throw new RuntimeException("Currency name and date may not be null!");
+
+		for (int i = 0; i < currencies.size(); i++) {
+			if ((currencies.get(i).getName().equals(currency) || currencies.get(i).getShortName().equals(currency))
+					&& currencies.get(i).getDate().equals(date))
+				return currencies.get(i);
+
+		}
 		return null;
+
 	}
 }
