@@ -70,4 +70,60 @@ public class Currency {
 		this.date = date;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(middle);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		temp = Double.doubleToLongBits(purchasable);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(sales);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((shortName == null) ? 0 : shortName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Currency other = (Currency) obj;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		if (Double.doubleToLongBits(middle) != Double.doubleToLongBits(other.middle))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (Double.doubleToLongBits(purchasable) != Double.doubleToLongBits(other.purchasable))
+			return false;
+		if (Double.doubleToLongBits(sales) != Double.doubleToLongBits(other.sales))
+			return false;
+		if (shortName == null) {
+			if (other.shortName != null)
+				return false;
+		} else if (!shortName.equals(other.shortName))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Currency [name=" + name + ", shortName=" + shortName + ", sales=" + sales + ", purchasable="
+				+ purchasable + ", middle=" + middle + ", date=" + date + "]";
+	}
+
 }
